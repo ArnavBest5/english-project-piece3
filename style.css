@@ -1,0 +1,76 @@
+:root {
+    --bg: #1a1a1a;
+    --paper: #fdf6e3;
+    --ink: #2c3e50;
+    --danger: #e74c3c;
+    --success: #27ae60;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Georgia', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-shell {
+    background: var(--paper);
+    width: 95%;
+    max-width: 650px;
+    padding: 30px;
+    border: 1px solid #d3cebd;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; }
+.hidden { display: none !important; }
+
+h1 { font-size: 2.2rem; margin-bottom: 0; color: var(--ink); }
+.subtitle { font-style: italic; margin-bottom: 25px; color: #7f8c8d; }
+
+.menu-buttons { display: grid; gap: 10px; width: 250px; margin-top: 20px; }
+.menu-buttons button, .choice-btn {
+    padding: 12px;
+    cursor: pointer;
+    background: var(--ink);
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.menu-buttons button:hover { background: #34495e; transform: scale(1.05); }
+
+#username { padding: 10px; border: 1px solid #ccc; text-align: center; margin-top: 10px; width: 200px; }
+
+/* Gameplay UI */
+#top-bar { display: flex; justify-content: space-between; width: 100%; border-bottom: 2px solid var(--ink); margin-bottom: 20px; padding-bottom: 5px; font-size: 0.9rem; }
+#guide-section { display: flex; gap: 15px; margin-bottom: 20px; text-align: left; align-items: center; }
+.bubble { background: #fff; padding: 12px; border-radius: 0 15px 15px 15px; border: 1px solid #ccc; flex: 1; font-style: italic; font-size: 0.95rem; }
+.avatar { font-size: 2.5rem; }
+
+#stage h2 { margin: 0; color: var(--ink); }
+#stage p { line-height: 1.6; min-height: 100px; }
+
+#actions { display: grid; gap: 10px; width: 100%; }
+
+/* Leaderboard/Summary */
+#leaderboard-list { width: 100%; max-height: 250px; overflow-y: auto; margin: 20px 0; }
+.player-group { background: #fff; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; text-align: left; }
+.status-tag { font-size: 0.7rem; padding: 2px 5px; border-radius: 3px; color: white; float: right; }
+.status-woke { background: var(--success); }
+.status-asleep { background: var(--danger); }
+
+/* Visual Animations */
+.fade-out { opacity: 0; transition: opacity 0.4s; }
+.time-jump { animation: flash 0.6s; }
+@keyframes flash {
+    0% { background: var(--paper); }
+    50% { background: #d3cebd; }
+    100% { background: var(--paper); }
+}
