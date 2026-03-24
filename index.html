@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Oakhaven Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-shell">
+        <!-- MENU SCREEN -->
+        <div id="menu-screen" class="screen">
+            <h1>The Oakhaven Project</h1>
+            <p class="subtitle">Based on "Our Town"</p>
+            
+            <div id="name-section">
+                <p id="welcome-msg">Welcome, Traveler.</p>
+                <input type="text" id="username" placeholder="Enter your name..." maxlength="15">
+            </div>
+
+            <div class="menu-buttons">
+                <button onclick="startGame()">START LIFE</button>
+                <button onclick="showLeaderboard()">YOUR HISTORY</button>
+                <button onclick="showScreen('how-to-play')">HOW TO PLAY</button>
+                <button onclick="showScreen('credits-screen')">CREDITS</button>
+                <button id="switch-btn" class="hidden" onclick="logout()">SWITCH PLAYER</button>
+            </div>
+        </div>
+
+        <!-- HOW TO PLAY -->
+        <div id="how-to-play" class="screen hidden">
+            <h2>How to Play</h2>
+            <p><strong>Objective:</strong> Survive the passage of time without losing your Vitality.</p>
+            <p><strong>The Guide:</strong> He watches every move. If you choose a "boring" path or ignore a detail, you lose half a heart.</p>
+            <p><strong>Victory:</strong> Reach the end with your eyes open to the world.</p>
+            <button onclick="showScreen('menu-screen')">BACK</button>
+        </div>
+
+        <!-- CREDITS -->
+        <div id="credits-screen" class="screen hidden">
+            <h2>Credits</h2>
+            <p>Inspired by Thornton Wilder's "Our Town"</p>
+            <p>Made by Arnav K. Srivastava(8th Grader as of 2026)</p>
+            <p>With the help of Google AI(Gemini) for corrections</p>
+            <button onclick="showScreen('menu-screen')">BACK</button>
+        </div>
+
+        <!-- LEADERBOARD / HISTORY -->
+        <div id="leaderboard-screen" class="screen hidden">
+            <h2 id="history-title">Your Past Lives</h2>
+            <div id="leaderboard-list"></div>
+            <button onclick="showScreen('menu-screen')">BACK</button>
+        </div>
+
+        <!-- MAIN GAMEPLAY -->
+        <div id="main-game" class="screen hidden">
+            <div id="top-bar">
+                <div id="vitality">VITALITY: <span id="hearts">❤️❤️❤️</span></div>
+                <div id="player-tag">👤 <span id="current-user-display"></span></div>
+                <div id="clock-area"><span id="year">2024</span></div>
+            </div>
+
+            <div id="guide-section">
+                <div class="avatar">🧥</div>
+                <div class="bubble"><p id="guide-msg"></p></div>
+            </div>
+            
+            <div id="stage">
+                <h2 id="title"></h2>
+                <p id="description"></p>
+            </div>
+            <div id="actions"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
